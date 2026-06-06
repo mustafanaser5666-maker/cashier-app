@@ -42,7 +42,7 @@ export default function App() {
   const [newProdCategory, setNewProdCategory] = useState('مشروبات');
   const [newProdStock, setNewProdStock] = useState('');
 
-  // دالة تسجيل الدخول المصححة
+  // دالة تسجيل الدخول
   const handleLogin = (e) => {
     if (e && e.preventDefault) e.preventDefault();
     
@@ -105,10 +105,10 @@ export default function App() {
 
     setSales([newSale, ...sales]);
     setCart([]);
-    alert('تم إتمام البيع وطباعة الفاتورة بنجاح! 🎉');
+    alert('تم إتمام البيع بنجاح! 🎉');
   };
 
-  // إضافة منتج جديد من قبل المدير
+  // إضافة منتج جديد
   const handleAddProduct = (e) => {
     e.preventDefault();
     if (!newProdName || !newProdPrice || !newProdStock) return;
@@ -186,11 +186,11 @@ export default function App() {
     );
   }
 
-  // واجهة التطبيق الرئيسية بعد الدخول
+  // الواجهة الرئيسية
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 font-sans flex flex-col md:flex-row" dir="rtl">
       
-      {/* القائمة الجانبية (Sidebar) */}
+      {/* القائمة الجانبية */}
       <div className="w-full md:w-64 bg-slate-800 border-l border-slate-700 flex flex-col justify-between p-4">
         <div>
           <div className="flex items-center gap-3 pb-6 mb-6 border-b border-slate-700">
@@ -248,10 +248,9 @@ export default function App() {
         </button>
       </div>
 
-      {/* المحتوى الرئيسي */}
+      {/* المحتوى */}
       <div className="flex-1 p-6 overflow-y-auto">
         
-        {/* 1. تبويب الإحصائيات (Admin فقط) */}
         {activeTab === 'dashboard' && role === 'admin' && (
           <div className="space-y-6">
             <h1 className="text-2xl font-bold text-white">لوحة التحكم والإحصائيات</h1>
@@ -281,7 +280,6 @@ export default function App() {
           </div>
         )}
 
-        {/* 2. شاشة البيع (POS) */}
         {activeTab === 'pos' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 space-y-4">
@@ -342,14 +340,13 @@ export default function App() {
                   disabled={cart.length === 0}
                   className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:pointer-events-none text-white font-medium rounded-xl shadow-lg transition flex items-center justify-center gap-2"
                 >
-                  <CheckCircle className="w-5 h-5" /> إتمام العملية وطباعة (F12)
+                  <CheckCircle className="w-5 h-5" /> إتمام العملية وطباعة
                 </button>
               </div>
             </div>
           </div>
         )}
 
-        {/* 3. إدارة المخزن (Admin فقط) */}
         {activeTab === 'products' && role === 'admin' && (
           <div className="space-y-6">
             <h1 className="text-2xl font-bold text-white">إدارة المنتجات والمخزن</h1>
@@ -395,7 +392,6 @@ export default function App() {
           </div>
         )}
 
-        {/* 4. سجل الفواتير */}
         {activeTab === 'sales' && (
           <div className="space-y-4">
             <h1 className="text-2xl font-bold text-white">سجل العمليات والفواتير الصادرة</h1>
