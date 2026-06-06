@@ -1,15 +1,4 @@
 import React, { useState } from 'react';
-import { 
-  ShoppingBag, 
-  Package, 
-  BarChart3, 
-  LogOut, 
-  Plus, 
-  Trash2, 
-  CheckCircle, 
-  DollarSign, 
-  FileText 
-} from 'lucide-react';
 
 export default function App() {
   // حالات تسجيل الدخول والمستخدم
@@ -136,8 +125,8 @@ export default function App() {
       <div className="min-h-screen flex items-center justify-center bg-slate-900 font-sans p-4" dir="rtl">
         <div className="bg-slate-800 p-8 rounded-2xl shadow-xl w-full max-w-md border border-slate-700">
           <div className="text-center mb-8">
-            <div className="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30">
-              <ShoppingBag className="w-8 h-8 text-white" />
+            <div className="bg-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-500/30 text-2xl">
+              🛍️
             </div>
             <h1 className="text-2xl font-bold text-white">نظام كاشير النور</h1>
             <p className="text-slate-400 mt-2 text-sm">يرجى تسجيل الدخول لإدارة المبيعات</p>
@@ -194,8 +183,8 @@ export default function App() {
       <div className="w-full md:w-64 bg-slate-800 border-l border-slate-700 flex flex-col justify-between p-4">
         <div>
           <div className="flex items-center gap-3 pb-6 mb-6 border-b border-slate-700">
-            <div className="bg-blue-600 p-2 rounded-xl">
-              <ShoppingBag className="w-6 h-6 text-white" />
+            <div className="bg-blue-600 p-2 rounded-xl text-xl">
+              🛍️
             </div>
             <div>
               <h2 className="font-bold text-white text-lg">كاشير النور</h2>
@@ -211,7 +200,7 @@ export default function App() {
                 onClick={() => setActiveTab('dashboard')}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${activeTab === 'dashboard' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700/50'}`}
               >
-                <BarChart3 className="w-5 h-5" /> الإحصائيات العامة
+                <span>📊</span> الإحصائيات العامة
               </button>
             )}
 
@@ -219,7 +208,7 @@ export default function App() {
               onClick={() => setActiveTab('pos')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${activeTab === 'pos' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700/50'}`}
             >
-              <ShoppingBag className="w-5 h-5" /> شاشة البيع (POS)
+              <span>🛍️</span> شاشة البيع (POS)
             </button>
 
             {role === 'admin' && (
@@ -227,7 +216,7 @@ export default function App() {
                 onClick={() => setActiveTab('products')}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${activeTab === 'products' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700/50'}`}
               >
-                <Package className="w-5 h-5" /> إدارة المخزن
+                <span>📦</span> إدارة المخزن
               </button>
             )}
 
@@ -235,7 +224,7 @@ export default function App() {
               onClick={() => setActiveTab('sales')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition ${activeTab === 'sales' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-700/50'}`}
             >
-              <FileText className="w-5 h-5" /> سجل الفواتير
+              <span>📄</span> سجل الفواتير
             </button>
           </nav>
         </div>
@@ -244,7 +233,7 @@ export default function App() {
           onClick={handleLogout}
           className="w-full flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-500/10 rounded-xl text-sm font-medium transition mt-8"
         >
-          <LogOut className="w-5 h-5" /> تسجيل الخروج
+          <span>🚪</span> تسجيل الخروج
         </button>
       </div>
 
@@ -260,21 +249,21 @@ export default function App() {
                   <p className="text-slate-400 text-sm">إجمالي المبيعات</p>
                   <h3 className="text-2xl font-bold text-white mt-1">{totalSalesRevenue.toLocaleString()} د.ع</h3>
                 </div>
-                <div className="bg-emerald-500/10 p-3 rounded-xl text-emerald-400"><DollarSign className="w-6 h-6" /></div>
+                <div className="bg-emerald-500/10 p-3 rounded-xl text-xl">💵</div>
               </div>
               <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 flex items-center justify-between">
                 <div>
                   <p className="text-slate-400 text-sm">الفواتير الصادرة</p>
                   <h3 className="text-2xl font-bold text-white mt-1">{sales.length} فاتورة</h3>
                 </div>
-                <div className="bg-blue-500/10 p-3 rounded-xl text-blue-400"><FileText className="w-6 h-6" /></div>
+                <div className="bg-blue-500/10 p-3 rounded-xl text-xl">📄</div>
               </div>
               <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 flex items-center justify-between">
                 <div>
                   <p className="text-slate-400 text-sm">المنتجات بالمخزن</p>
                   <h3 className="text-2xl font-bold text-white mt-1">{products.length} صنف</h3>
                 </div>
-                <div className="bg-amber-500/10 p-3 rounded-xl text-amber-400"><Package className="w-6 h-6" /></div>
+                <div className="bg-amber-500/10 p-3 rounded-xl text-xl">📦</div>
               </div>
             </div>
           </div>
@@ -308,7 +297,7 @@ export default function App() {
             <div className="bg-slate-800 rounded-2xl border border-slate-700 p-4 flex flex-col justify-between h-[calc(100vh-8rem)]">
               <div>
                 <h2 className="font-bold text-white text-lg pb-3 border-b border-slate-700 flex items-center gap-2">
-                  <ShoppingBag className="w-5 h-5 text-blue-500" /> الفاتورة الحالية
+                  <span>🛍️</span> الفاتورة الحالية
                 </h2>
                 <div className="space-y-3 mt-4 overflow-y-auto max-h-[50vh]">
                   {cart.length === 0 ? (
@@ -322,7 +311,7 @@ export default function App() {
                         </div>
                         <div className="flex items-center gap-3">
                           <span className="font-bold text-blue-400 text-sm">{(item.price * item.qty).toLocaleString()}</span>
-                          <button onClick={() => removeFromCart(item)} className="text-red-400 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                          <button onClick={() => removeFromCart(item)} className="text-red-400 hover:text-red-500 text-xs">❌</button>
                         </div>
                       </div>
                     ))
@@ -340,7 +329,7 @@ export default function App() {
                   disabled={cart.length === 0}
                   className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:pointer-events-none text-white font-medium rounded-xl shadow-lg transition flex items-center justify-center gap-2"
                 >
-                  <CheckCircle className="w-5 h-5" /> إتمام العملية وطباعة
+                  <span>✅</span> إتمام العملية وطباعة الفاتورة
                 </button>
               </div>
             </div>
@@ -364,7 +353,7 @@ export default function App() {
                 <label className="block text-xs text-slate-400 mb-1">الكمية بالمخزن</label>
                 <input type="number" value={newProdStock} onChange={(e) => setNewProdStock(e.target.value)} className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm" placeholder="50" required />
               </div>
-              <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg text-sm flex items-center justify-center gap-2 h-10"><Plus className="w-4 h-4" /> إضافة</button>
+              <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg text-sm flex items-center justify-center gap-2 h-10">➕ إضافة</button>
             </form>
 
             <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
