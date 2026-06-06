@@ -1,16 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>كاشير النور</title>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>نظام كاشير النور</title>
+    <!-- تضمين مكتبة Tailwind CSS للتصميم -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body style="background-color: #0f172a;">
+  <body class="bg-slate-900">
     <div id="root"></div>
     
-    <script type="text/babel" src="/App.jsx"></script>
+    <!-- الربط المباشر مع ملف الـ React الرئيسي بالخارج -->
+    <script type="module">
+      import React from 'react';
+      import ReactDOM from 'react-dom/client';
+      import App from './App.jsx';
+
+      ReactDOM.createRoot(document.getElementById('root')).render(
+        React.createElement(React.StrictMode, null, React.createElement(App))
+      );
+    </script>
   </body>
 </html>
