@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { 
   ShoppingBag, 
-  Users, 
   Package, 
   BarChart3, 
   LogOut, 
   Plus, 
   Trash2, 
   CheckCircle, 
-  Search, 
-  TrendingUp, 
   DollarSign, 
   FileText 
 } from 'lucide-react';
@@ -56,12 +53,12 @@ export default function App() {
       setIsLoggedIn(true);
       setRole('admin');
       setError('');
-      setActiveTab('dashboard'); // المدير يفتح على الإحصائيات
+      setActiveTab('dashboard'); 
     } else if (enteredUser === 'sara' && enteredPass === '1234') {
       setIsLoggedIn(true);
       setRole('cashier');
       setError('');
-      setActiveTab('pos'); // الكاشير يفتح على شاشة البيع فوراً
+      setActiveTab('pos'); 
     } else {
       setError('اسم المستخدم أو كلمة المرور غير صحيحة');
     }
@@ -287,7 +284,6 @@ export default function App() {
         {/* 2. شاشة البيع (POS) */}
         {activeTab === 'pos' && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* قسم المنتجات المتاحة */}
             <div className="lg:col-span-2 space-y-4">
               <h1 className="text-2xl font-bold text-white">شاشة البيع السريع</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -311,7 +307,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* سلة المشتريات والفاتورة */}
             <div className="bg-slate-800 rounded-2xl border border-slate-700 p-4 flex flex-col justify-between h-[calc(100vh-8rem)]">
               <div>
                 <h2 className="font-bold text-white text-lg pb-3 border-b border-slate-700 flex items-center gap-2">
@@ -359,7 +354,6 @@ export default function App() {
           <div className="space-y-6">
             <h1 className="text-2xl font-bold text-white">إدارة المنتجات والمخزن</h1>
             
-            {/* نموذج إضافة منتج جديد */}
             <form onSubmit={handleAddProduct} className="bg-slate-800 p-4 rounded-xl border border-slate-700 grid grid-cols-1 sm:grid-cols-5 gap-4 items-end">
               <div className="sm:col-span-2">
                 <label className="block text-xs text-slate-400 mb-1">اسم المنتج</label>
@@ -376,7 +370,6 @@ export default function App() {
               <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg text-sm flex items-center justify-center gap-2 h-10"><Plus className="w-4 h-4" /> إضافة</button>
             </form>
 
-            {/* جدول المنتجات الحالية */}
             <div className="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
               <table className="w-full text-right border-collapse">
                 <thead>
@@ -402,7 +395,7 @@ export default function App() {
           </div>
         )}
 
-        {/* 4. سجل المبيعات والفواتير */}
+        {/* 4. سجل الفواتير */}
         {activeTab === 'sales' && (
           <div className="space-y-4">
             <h1 className="text-2xl font-bold text-white">سجل العمليات والفواتير الصادرة</h1>
